@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2 ЛР Гладышев</title>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        function func(){
+            var x = Number (document.forms["frm"].elements["varx"].value);
+            var n = Number (document.forms["frm"].elements["varn"].value);
+            var b = 0;
+            var c = 0;
+            var cfac=0;
+            if (n==1) {
+                b=1;
+            }
+            else{
+                for(var a=0; a<n; a++){
+                    c=a;
+                    if (c!=0) {
+                        cfac = 1;
+                        for (var i=1; i<=c; i++) {
+                            cfac=i*cfac;
+                        }
+                    }
+                    else{
+                        cfac=1;
+                    }
+                    
+                    b=b+((((-1)**a)*(x**(a)))/(cfac));
+                        }
+            }
+            document.writeln(b);
+        }
+      
+    </script>
+</head>
+<body>
+    <form id="frm">
+        <p>Введите число x:</p>
+        <input type="text" name="varx" id="x">
+        <p>Введите число n:</p>
+        <input type="text" name="varn" id="n">
+        <input type="submit" value="OK" onclick="func()">
+    </form>
+<h2>Ответ:</h2>
+</body>
+</html>
