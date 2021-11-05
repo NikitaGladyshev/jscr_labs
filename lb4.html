@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3 ЛР Гладышев</title>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        //функция для создания массива пользователем
+        function formMas(){
+            var n = Number(prompt("Введите количество элементов:"));
+            var nMas = [];
+            for(var i=0; i<n; i++){
+                nMas[i]=prompt("Введите слово:");
+            }
+            return nMas;
+        }
+
+        var myArray = formMas();
+        var newArray = [];
+
+        var regExp=/\d\d/;
+        for(var i = 0; i < myArray.length; i++){
+           if(regExp.test(myArray[i])){
+            newArray.push(myArray[i]);
+            } 
+        }
+        
+        var str = newArray.join("; ");
+        
+
+        document.writeln("Все слова, где есть двузначные числа: "+str);
+    </script>
+</head>
+<body>
+</body>
+</html>

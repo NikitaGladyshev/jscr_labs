@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3 ЛР Гладышев</title>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        //функция для создания массива пользователем
+        function formMas(){
+            var n = Number(prompt("Введите количество элементов:"));
+            var nMas = [];
+            for(var i=0; i<n; i++){
+                nMas[i]=Number(prompt("Введите число:"));
+            }
+            return nMas;
+        }
+
+        var myArray = formMas();
+
+        //Произведение элементов массива с четными номерами
+        var proizv=1;
+        for( var i=0; i<myArray.length; i++){
+            if(i%2==0){
+                proizv*=myArray[i];
+            }
+        }
+
+        //Сумма элементов массива, располоенных между первым и последним нулевыми элементами
+        var first0El;
+        var last0El;
+        var sum0=0;
+        for( var i=0; i<myArray.length; i++){
+            if(myArray[i]==0){
+                first0El=i;
+                break;
+            }
+        }
+        for( var i=myArray.length; i>0; i--){
+            if(myArray[i]==0){
+                last0El=i;
+                break;
+            }
+        }
+        for( var i=first0El+1; i<last0El; i++){
+            sum0+=myArray[i];
+        }
+
+        //Массив, где сначала расположены положительны элементы, а потом отрицательные
+        var ArrOtr = [];
+        var ArrPol = [];
+        for(var i=0; i<myArray.length; i++){
+            if(myArray[i]<0){
+                ArrOtr.push(myArray[i]);
+            }
+            else{
+                ArrPol.push(myArray[i]);
+            }
+        }
+
+        myArray=ArrPol.concat(ArrOtr);
+        var str = myArray.join("; ");
+        
+
+        document.writeln("Произведение элементов массива с четными номерами: "+proizv+"; Сумма элементов массива, располоенных между первым и последним нулевыми элементами: "+sum0+"; Массив, где сначала расположены положительны элементы, а потом отрицательные: "+str);
+    </script>
+</head>
+<body>
+</body>
+</html>
